@@ -90,6 +90,182 @@
 
 // Перекладіть поданий рядок на поросячу латину. Відомо, що при вводі всі рядки будуть складатись з англійських слів у нижньому регістрі.
 
-function translatePigLatin(str) {}
+// function translatePigLatin(str) {
+//   const indexOfLetter = str.search(/[aeiou]/);
+//   if (indexOfLetter > 0) {
+//     const firstPartOfStr = str.slice(0, indexOfLetter);
+//     const secondPartOfStr = str.slice(indexOfLetter, str.length);
+//     return secondPartOfStr + firstPartOfStr + "ay";
+//   } else if (indexOfLetter === -1) {
+//     return str + "ay";
+//   } else {
+//     return str + "way";
+//   }
+// }
 
-console.log(translatePigLatin("consonant"));
+// console.log(translatePigLatin("california"));
+// console.log(translatePigLatin("paragraphs"));
+// console.log(translatePigLatin("glove")); //має повертати рядок oveglay
+// console.log(translatePigLatin("rhythm")); //має повертати рядок rhythmay.
+// console.log(translatePigLatin("schwartz")); //має повертати рядок artzschway.
+// console.log(translatePigLatin("eight")); //має повертати рядок eightway.
+
+// Пошук та заміна
+// Виконайте пошук та заміну на реченні, використовуючи надані аргументи, та поверніть нове речення.
+
+// Першим аргументом є речення, над яким потрібно виконати пошук і заміну.
+
+// Другим аргументом є слово, яке ви будете заміняти (до).
+
+// Третім аргументом є слово, яким ви заміните другий аргумент (після).
+
+// Примітка: збережіть регістр першого символу початкового слова, коли ви замінюєте його. Наприклад, якщо ви хочете замінити слово Book словом dog, його потрібно замінювати як Dog
+
+// function myReplace(str, before, after) {
+//   const beforeFirstCapital = before.search(/[A-Z]/);
+//   if (beforeFirstCapital === 0) {
+//     const afterFirstCapital = after.charAt(0).toUpperCase() + after.slice(1);
+//     return str.replace(before, afterFirstCapital);
+//   }
+//   return str.replace(before, after.toLowerCase());
+// }
+
+// console.log(myReplace("He is Sleeping on the couch", "Sleeping", "sitting")); //He is Sitting on the couch
+// console.log(
+//   myReplace("Let us get back to more Coding", "Coding", "algorithms")
+// ); //Let us get back to more Algorithms.
+// console.log(myReplace("I think we should look up there", "up", "Down")); //має повертати рядок I think we should look down there.
+
+// Формування пар ДНК
+// Пари ланцюжків ДНК складаються з нуклеотидів. Базові пари позначаються символами AT та CG, які утворюють будівельні блоки подвійної спіралі ДНК.
+
+// В ланцюжку ДНК відсутній один елемент. Напишіть функцію для пошуку відсутніх базових пар для наданого ланцюжка ДНК. Знайдіть відповідний символ для кожного символу в наданому рядку. Поверніть результати як 2d-масив.
+
+// Наприклад, при введенні GCG поверніть [["G", "C"], ["C","G"], ["G", "C"]]
+
+// Символ та його пара об’єднуються в масив, і всі масиви згруповані в один інкапсульований масив.
+
+// function pairElement(str) {
+//   const pairs = {
+//     A: "T",
+//     T: "A",
+//     C: "G",
+//     G: "C",
+//   };
+//   return str.split("").map((symb) => [symb, pairs[symb]]);
+// }
+
+// console.log(pairElement("GCG"));
+
+// Пропущені літери
+// Знайдіть пропущену літеру в переданому діапазоні літер та поверніть її.
+
+// Якщо у діапазоні наявні всі літери, поверніть undefined.
+
+// function fearNotLetter(str) {
+//   for (let i = 0; i < str.length; i++) {
+//     const charCode = str.charCodeAt(i);
+//     if (charCode !== str.charCodeAt(0) + i) {
+//       return String.fromCharCode(str.charCodeAt(0) + i);
+//     }
+//   }
+// }
+// console.log(fearNotLetter("abcdefghjklmno"));
+// console.log(fearNotLetter("abcdefghijklmnopqrstuvwxyz"));
+// console.log(fearNotLetter("abce"));
+
+// Сортування масиву
+// Напишіть функцію, яка приймає два або більше масивів та повертає новий масив унікальних значень у порядку наданих початкових масивів.
+
+// Іншими словами, усі значення, що є в масиві, повинні бути в початковому порядку, але в кінцевому масиві не повинно бути повторень.
+
+// Унікальні числа повинні бути відсортовані за початковим порядком, але кінцевий масив не повинен бути відсортованим за числовим порядком.
+
+// Ознайомтеся з тестами тверджень для прикладу.
+
+// function uniteUnique(...arr) {
+//   const newArr = [...arr]
+//     .flatMap((el) => el)
+//     .filter((el, index, arr) => arr.indexOf(el) === index);
+//   return newArr;
+// }
+
+// console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1])); //має повертати [1, 3, 2, 5, 4].
+// console.log(uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8])); //має повертати [1, 2, 3, 5, 4, 6, 7, 8].
+
+// Перетворення символів для HTML
+// Перетворіть символи &, <, >, " (подвійні лапки) та ' (апостроф) у відповідне позначення символів для HTML.
+
+// function convertHTML(str) {
+//   const htmlSymbols = {
+//     "&": "&amp;",
+//     "<": "&lt;",
+//     ">": "&gt;",
+//     '"': "&quot;",
+//     "'": "&apos;",
+//   };
+
+//   return str
+//     .split("")
+//     .map((el) => htmlSymbols[el] || el)
+//     .join("");
+// }
+
+// console.log(convertHTML("Dolce & Gabbana")); //Dolce &amp; Gabbana.
+// console.log(convertHTML('Stuff in "quotation marks"')); // має повертати рядок Stuff in &quot;quotation marks&quot;.
+
+// Сума всіх непарних чисел Фібоначчі
+// Маючи додатнє ціле число num, поверніть суму всіх непарних чисел Фібоначчі, які менші чи дорівнюють num.
+
+// Першими двома числами в послідовності Фібоначчі є 0 та 1. Кожне додаткове число у послідовності є сумою двох попередніх чисел. Першими сімома числами в послідовності Фібоначчі є 1, 1, 2, 3, 5 і 8.
+
+// Наприклад, sumFibs(10) має повертати 10, оскільки всі непарні числа Фібоначчі, які менші або дорівнюють 10 — це 1, 1, 3 і 5.
+
+// function sumFibs(num) {
+//   if (num <= 1) {
+//     return num;
+//   }
+//   const fibonacci = [0, 1];
+//   for (let i = 2; i <= num; i++) {
+//     const nextNumber = fibonacci[i - 1] + fibonacci[i - 2];
+//     if (nextNumber > num) {
+//       break;
+//     }
+//     fibonacci.push(nextNumber);
+//   }
+//   return fibonacci
+//     .filter((number) => number % 2 !== 0 && number <= num)
+//     .reduce((prev, num) => {
+//       return prev + num;
+//     }, 0);
+// }
+
+// console.log(sumFibs(75025));
+
+// Сума всіх простих чисел
+// Просте число — це ціле число, яке більше за 1 та має два дільники: 1 і саме число. Наприклад, 2 є простим числом, оскільки воно ділиться лише на 1 і 2. І навпаки, 4 не є простим числом, оскільки воно ділиться на 1, 2 і 4.
+
+// Перепишіть sumPrimes таким чином, щоб поверталася сума всіх простих чисел, які менші або дорівнюють num.
+
+// function sumPrimes(num) {
+//   let result = 0;
+
+//   function isPrime(n) {
+//     for (let i = 2; i <= Math.sqrt(n); i++) {
+//       if (n % i === 0) {
+//         return false;
+//       }
+//     }
+//     return n > 1;
+//   }
+
+//   for (let i = 2; i <= num; i++) {
+//     if (isPrime(i)) {
+//       result += i;
+//     }
+//   }
+
+//   return result;
+// }
+
+// console.log(sumPrimes(10)); //має повертати 17
