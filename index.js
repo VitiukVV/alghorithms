@@ -269,3 +269,33 @@
 // }
 
 // console.log(sumPrimes(10)); //має повертати 17
+
+// Найменше спільне кратне
+// Знайдіть найменше спільне кратне заданих параметрів, яке можна поділити на обидва з них, а також на всі послідовні числа в діапазоні між цими параметрами.
+
+// Діапазоном буде масив з двох чисел, які необов’язково будуть у числовому порядку.
+
+// Наприклад, якщо дано 1 і 3, знайдіть найменше спільне кратне обох чисел(1 і 3), яке рівно ділиться на всі числа між 1 і 3. Тут відповіддю буде 6.
+
+// function smallestCommons(arr) {
+//   const [min, max] = [...arr].sort((a, b) => a - b);
+//   let fullArr = [];
+//   for (let i = min; i <= max; i++) {
+//     fullArr.push(i);
+//   }
+
+//   function gcd(a, b) {
+//     console.log(a, b);
+//     return b === 0 ? a : gcd(b, a % b);
+//   }
+
+//   function lcm(a, b) {
+//     return (a * b) / gcd(a, b);
+//   }
+
+//   return fullArr.reduce((multiple, num) => lcm(multiple, num), 1);
+// }
+
+// console.log(smallestCommons([1, 3])); //має повертати 6.
+// console.log(smallestCommons([1, 5])); //має повертати 60.
+// console.log(smallestCommons([10, 2])); //має повертати 2520.
