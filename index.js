@@ -299,3 +299,236 @@
 // console.log(smallestCommons([1, 3])); //має повертати 6.
 // console.log(smallestCommons([1, 5])); //має повертати 60.
 // console.log(smallestCommons([10, 2])); //має повертати 2520.
+
+// Облиште
+// Переберіть масив arr та вилучіть кожен елемент, починаючи з першого елемента (індекс 0), допоки функція func не поверне true, коли ітерований елемент пройде крізь.
+
+// Потім поверніть решту масиву, якщо умову виконано. В іншому випадку arr має повертатися у вигляді порожнього масиву.
+
+// function dropElements(arr, func) {
+//   let sliceIndex = arr.findIndex(func);
+//   return arr.slice(sliceIndex >= 0 ? sliceIndex : arr.length);
+// }
+
+// console.log(
+//   dropElements([1, 2, 3], function (n) {
+//     return n <= 3;
+//   })
+// );
+
+// console.log(
+//   dropElements([1, 2, 3, 4], function (n) {
+//     return n > 5;
+//   })
+// ); //має повертати []
+
+// Нездоланна сила
+// Вирівняйте вкладений масив.Ви повинні врахувати різні рівні вкладення.
+// У вашому рішенні не повинні використовуватися методи Array.prototype.flat() або Array.prototype.flatMap().
+
+// function steamrollArray(arr) {
+//   const result = [];
+//   arr.forEach((element) => {
+//     if (Array.isArray(element)) {
+//       result.push(...steamrollArray(element));
+//     } else {
+//       result.push(element);
+//     }
+//   });
+//   return result;
+// }
+
+// console.log(steamrollArray([1, [2], [3, [[4]]]])); //має повертати [1, 2, 3, 4]
+
+// Бінарні агенти
+// Поверніть переданий бінарний рядок, перекладений англійською мовою.
+
+// Бінарний рядок буде розділений пробілом.
+
+// function binaryAgent(str) {
+//   return str
+//     .split(" ")
+//     .map((el) => String.fromCharCode(parseInt(el, 2)))
+//     .join("");
+// }
+
+// console.log(
+//   binaryAgent(
+//     "01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111"
+//   )
+// ); //має повертати рядок Aren't bonfires fun!?
+
+// console.log(
+//   binaryAgent(
+//     "01001001 00100000 01101100 01101111 01110110 01100101 00100000 01000110 01110010 01100101 01100101 01000011 01101111 01100100 01100101 01000011 01100001 01101101 01110000 00100001"
+//   )
+// ); //має повертати рядок I love FreeCodeCamp!
+
+// Усе вірно
+// Перевірте, чи предикат (другий аргумент) є істинним для усіх елементів колекції (перший аргумент).
+
+// Іншими словами, вам надано колекцію масивів об’єктів. Предикат pre буде властивістю об’єкта і вам потрібно повернути true, якщо його значення truthy (істинне). В іншому випадку поверніть false.
+
+// Значення truthy у JavaScript — це значення, які перетворюються на true при оцінці в булевому контексті.
+
+// Пам’ятайте, ви можете отримати доступ до властивостей об’єкта, використовуючи точкову нотацію або дужкову нотацію ([]).
+
+// function truthCheck(collection, pre) {
+//   return collection.every((el) => Boolean(el[pre]));
+// }
+
+// console.log(
+//   truthCheck(
+//     [
+//       { name: "Quincy", role: "Founder", isBot: false },
+//       { name: "Naomi", role: "", isBot: false },
+//       { name: "Camperbot", role: "Bot", isBot: true },
+//     ],
+//     "isBot"
+//   )
+// ); //має повертати false.
+
+// console.log(
+//   truthCheck(
+//     [
+//       { name: "Quincy", role: "Founder", isBot: false },
+//       { name: "Naomi", role: "", isBot: false },
+//       { name: "Camperbot", role: "Bot", isBot: true },
+//     ],
+//     "name"
+//   )
+// ); //має повертати true.
+
+// console.log(
+//   truthCheck(
+//     [
+//       { name: "Pikachu", number: 25, caught: 3 },
+//       { name: "Togepi", number: 175, caught: 1 },
+//     ],
+//     "number"
+//   )
+// ); //має повертати true.
+
+// Додаткові аргументи
+// Створіть функцію, яка додає два аргументи. Якщо вказано лише один аргумент, то поверніть функцію, яка очікує один аргумент і повертає суму.
+
+// Наприклад, addTogether(2, 3) має повертати 5, а addTogether(2) має повертати функцію.
+
+// Якщо викликати функцію, повернуту з одним аргументом, то повернеться сума:
+
+// var sumTwoAnd = addTogether(2);
+// sumTwoAnd(3) повертає 5.
+
+// Якщо жоден з аргументів не є дійсним числом, поверніть undefined.
+
+// function addTogether() {
+//   const [first, second] = arguments;
+//   if (typeof first === "number") {
+//     if (typeof second === "number") return first + second;
+//     if (arguments.length === 1) return (second) => addTogether(first, second);
+//   }
+// }
+
+// console.log(addTogether(2)(7));
+
+// Створіть людину
+// Заповніть конструктор об’єкта, використовуючи наведені нижче методи:
+
+// getFirstName()
+// getLastName()
+// getFullName()
+// setFirstName(first)
+// setLastName(last)
+// setFullName(first, last)
+// Запустіть тести, щоб побачити очікуваний вивід для кожного методу. Ці методи повинні бути єдиними доступними засобами для взаємодії з об’єктом. Кожен тест оголосить новий екземпляр Person як new Person('Bob', 'Ross').
+// Ви не повинні змінювати сигнатуру функції.
+// Ви не повинні перепризначати параметр first.
+// Ви не повинні перепризначати параметр last.
+// Не треба додавати жодних властивостей. Object.keys(Person).length завжди має повертати 6.
+// Ви повинні мати можливість створити об’єкт Person.
+// Об’єкт Person не повинен мати властивість firstName.
+// Об’єкт Person не повинен мати властивість lastName.
+// Метод .getFirstName() має повертати рядок Bob.
+// .getLastName() має повертати рядок Ross.
+// Метод .getFullName() має повертати рядок Bob Ross.
+// Метод .getFullName() має повертати рядок Haskell Ross після виклику .setFirstName('Haskell').
+// Метод .getFullName() має повертати рядок Bob Curry після виклику .setLastName('Curry').
+// Метод .getFullName() має повертати рядок Haskell Curry після виклику .setFullName('Haskell', 'Curry').
+// Метод .getFirstName() має повертати рядок Haskell після виклику .setFullName('Haskell', 'Curry').
+// Метод .getLastName() має повертати рядок Curry після виклику .setFullName('Haskell', 'Curry').
+// Метод .getFullName() має повертати рядок Emily Martinez de la Rosa після виклику .setFullName('Emily Martinez', 'de la Rosa').
+// Властивість .getFirstName() має повертати рядок Emily Martinez після виклику .setFullName('Emily Martinez', 'de la Rosa').
+//  Властивість.getLastName() має повертати рядок de la Rosa після виклику.setFullName('Emily Martinez', 'de la Rosa').
+
+// const Person = function (first, last) {
+//   let firstName = first;
+//   let lastName = last;
+//   this.getFirstName = function () {
+//     return firstName;
+//   };
+//   this.getLastName = function () {
+//     return lastName;
+//   };
+
+//   this.getFullName = function () {
+//     return this.getFirstName() + " " + this.getLastName();
+//   };
+
+//   this.setFirstName = function (newFirst) {
+//     return (firstName = newFirst);
+//   };
+
+//   this.setLastName = function (newLast) {
+//     return (lastName = newLast);
+//   };
+//   this.setFullName = function (newFirstName, newLastName) {
+//     this.setFirstName(newFirstName);
+//     this.setLastName(newLastName);
+//     return this.getFullName();
+//   };
+// };
+
+// const bob = new Person("Bob", "Ross");
+
+// Карта орбіт
+// Згідно з третім законом Кеплера, орбітальним періодом  T
+//   двох точкових мас, що обертаються навколо одна одної по круговій або еліптичній орбіті, є:
+
+// T=2πa3μ−−−√
+
+// a
+//   — велика піввісь орбіти
+// μ=GM
+//   — стандартний гравітаційний параметр
+// G
+//   — гравітаційна стала,
+// M
+//   — маса масивнішого тіла.
+// Поверніть новий масив, який трансформує середню висоту елементів у їхні орбітальні періоди (у секундах).
+
+// Масив міститиме об’єкти у форматі {name: 'name', avgAlt: avgAlt}.
+
+// Значення потрібно округлити до найближчого цілого числа. Тіло, навколо якого потрібно обертатися, — Земля.
+
+// Радіус Землі становить 6367.4447 кілометрів, а значення GM Землі — 398600.4418 км3с-2.
+
+// function orbitalPeriod(arr) {
+//   const GM = 398600.4418;
+//   const earthRadius = 6367.4447;
+//   return arr.map(({ name, avgAlt }) => {
+//     const earth = earthRadius + avgAlt;
+//     const orbitalPeriod = Math.round(
+//       2 * Math.PI * Math.sqrt(Math.pow(earth, 3) / GM)
+//     );
+//     return { name: name, orbitalPeriod: orbitalPeriod };
+//   });
+// }
+
+// console.log(orbitalPeriod([{ name: "sputnik", avgAlt: 35873.5553 }])); //має повертати [{name: "sputnik", orbitalPeriod: 86400}]
+// console.log(
+//   orbitalPeriod([
+//     { name: "iss", avgAlt: 413.6 },
+//     { name: "hubble", avgAlt: 556.7 },
+//     { name: "moon", avgAlt: 378632.553 },
+//   ])
+// ); //має повертати [{name : "iss", orbitalPeriod: 5557}, {name: "hubble", orbitalPeriod: 5734}, {name: "moon", orbitalPeriod: 2377399}].
